@@ -17,7 +17,7 @@
     }
 
     blink {
-     color:#33cc00;
+     color:#99ccff;
      -webkit-animation: blink 1s step-end infinite;
      animation: blink 1s step-end infinite;
    }
