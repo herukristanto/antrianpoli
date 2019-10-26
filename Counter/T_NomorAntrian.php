@@ -35,8 +35,8 @@
 		height: 220px;
 	}
 	.tombol{
-		height: 50px; 
-		width: 100px; 
+		height: 50px;
+		width: 100px;
 		color: white;
 		background-color: green;
 		border-radius: 8px;
@@ -55,6 +55,7 @@
 	}
 	.listdokter{
 		font-size: 17px;
+		font-weight: bold;
 	}
 </style>
 </head>
@@ -72,7 +73,7 @@
 		}elseif ($printer == "SKIN CENTER") {
 			$printer = 'SC';
 		}else{
-			$printer = substr($printer, 11);	
+			$printer = substr($printer, 11);
 		}
 	}
 
@@ -103,22 +104,22 @@
 		echo "<select class='listdokter' name='listdokter'>";
 		echo "<option></option>";
 		while($hasil = sqlsrv_fetch_array($sql2, SQLSRV_FETCH_ASSOC)){
-			echo "<option value='".$hasil['Doctor_Id']."'>".$hasil['Name']."</option>";			
+			echo "<option value='".$hasil['Doctor_Id']."'>".$hasil['Name']."</option>";
 		}
 	}
 	function ruang(){
 		include "koneksi.php";
 
 		$poli = $_SESSION["poli"];
-		
+
 	//list ruang
-		$que3 = "select * from QP7RUANG where nama_poli ='".$poli."'"; 
+		$que3 = "select * from QP7RUANG where nama_poli ='".$poli."'";
 		$sql3 = sqlsrv_query($conn,$que3);
 
 		echo "<select class='listdokter' name='listruang'>";
 		echo "<option></option>";
 		while($app3 = sqlsrv_fetch_array($sql3, SQLSRV_FETCH_ASSOC)){
-			echo "<option value='".$app3['Id_Ruang']."'>".$app3['Nama_Ruang']."</option>";	
+			echo "<option value='".$app3['Id_Ruang']."'>".$app3['Nama_Ruang']."</option>";
 		}
 	}
 	?>
@@ -127,7 +128,7 @@
 			<tr>
 				<th colspan="2" align="center"><h1><?php echo $poli; ?></h1></th>
 			</tr>
-			<tr>
+			<tr >
 				<td>
 					Update Kedatangan
 					<br>
@@ -196,7 +197,7 @@
 				$poli = $_SESSION["poli"];
 
 					//list ruang
-				$que3 = "select * from QP7RUANG where nama_poli ='".$poli."'"; 
+				$que3 = "select * from QP7RUANG where nama_poli ='".$poli."'";
 				$sql3 = sqlsrv_query($conn,$que3);
 
 				if ($rs['Id_Ruang']!="") {
@@ -212,7 +213,7 @@
 						echo "<option value='".$app3['Id_Ruang']."' selected>".$app3['Nama_Ruang']."</option>";
 					}else{
 						echo "<option value='".$app3['Id_Ruang']."'>".$app3['Nama_Ruang']."</option>";
-					}	
+					}
 				}
 				echo "</select>
 
@@ -253,7 +254,7 @@
 			</td>
 			<td>";
 			$poli = $_SESSION["poli"];
-			$que3 = "select * from QP7RUANG where nama_poli ='".$poli."'"; 
+			$que3 = "select * from QP7RUANG where nama_poli ='".$poli."'";
 			$sql3 = sqlsrv_query($conn,$que3);
 			echo "<select class='listdokter' name='listruang'>";
 			echo "<option></option>";
@@ -393,7 +394,7 @@
 			var table = document.getElementById("MyTable");
 			var rowIndex = d.parentNode.parentNode.rowIndex;
 			var idrow = table.rows[rowIndex].cells[6].innerHTML;
-			var printer = '<?php echo $printer ?>';	
+			var printer = '<?php echo $printer ?>';
 			window.location.href = 'daftar.php?idrow='+idrow+'&printer='+printer;
 		}
 
@@ -410,6 +411,6 @@
 			window.location.href='logout.php';
 		}
 
-		
+
 	</script>
 </body>

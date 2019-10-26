@@ -26,10 +26,10 @@ if($hasil > 0) {
 		$_SESSION["username"]= $username;
 		$_SESSION["printer"]= $printer;
 		$_SESSION["poli"]= $poli;
-		header('location:T_NomorAntrian.php');	
+		header('location:T_NomorAntrian.php');
 }
 else{
 	header('Location: login.php');
-	exit();	
+	exit();
 }
 ?>
