@@ -21,41 +21,50 @@ include ("_menu.php");
     <div class="span12">
       <!--PAGE CONTENT BEGINS-->
 
-      <h4>Create Data Doctor</h4>
+      <h4>Edit Data Doctor</h4>
 
-      <form class="form-horizontal" action="dokter_proses.php" method="post">
+      <?php
+      include "koneksi.php";
+        $id = $_GET['dokter_id'];
+        $query = "SELECT * FROM QP7DOCTOR WHERE Doctor_id = '$id'";
+        $sql = sqlsrv_query($conn, $query);
+        while ($data = sqlsrv_fetch_array($sql)) {
+
+      ?>
+
+      <form class="form-horizontal" action="dokter_proses.php" method="POST">
 
         <div class="control-group">
           <label class="control-label" for="dokterid">Dockter ID</label>
           <div class="controls">
-            <input type="text" name="dokterid" id="dokterid" placeholder="Masukan ID Dokter">
+            <input type="text" name="dokterid" id="dokterid" value="<?php echo $data['Doctor_Id'] ?>" readonly>
           </div>
         </div>
 
         <div class="control-group">
           <label class="control-label" for="namadokter">Nama</label>
           <div class="controls">
-            <input type="text" name="namadokter" id="namadokter" placeholder="Masukan Nama Dokter">
+            <input type="text" name="namadokter" id="namadokter" value="<?php echo $data['Name'] ?>">
           </div>
         </div>
 
         <div class="control-group">
           <label class="control-label" for="statusdokter">Status</label>
           <div class="controls">
-            <input type="text" name="statusdokter" id="statusdokter">
+            <input type="text" name="statusdokter" id="statusdokter" value="<?php echo $data['Status'] ?>">
           </div>
         </div>
 
         <div class="control-group">
           <label class="control-label" for="create_at">Create By</label>
           <div class="controls">
-            <input type="text" name="create_at" id="create_at" >
+            <input type="text" name="create_at" id="create_at" value="<?php echo $data['Create_By'] ?>" >
           </div>
         </div>
 
         <div class="control-group">
           <div class="controls">
-            <button type="submit" class="btn btn-primary" name="simpan" value="new">Simpan</button>
+            <button type="submit" class="btn btn-primary" name="simpan" value="update">Simpan</button>
 
             <button type="button" class="btn btn-danger" name="button">Cencel</button>
           </div>
@@ -63,6 +72,7 @@ include ("_menu.php");
         </div>
 
       </form>
+    <?php } ?>
       <!--PAGE CONTENT ENDS-->
     </div><!--/.span-->
   </div><!--/.row-fluid-->

@@ -59,7 +59,7 @@ include ("_menu.php");
 
 
                     <tr>
-                    <td class=""><?php echo "$iddokter"; ?></td>
+                    <td class="" ><?php echo "$iddokter"; ?></td>
                     <td class=" "><?php echo "$name"; ?></td>
                     <td class="hidden-480 "><?php echo "$sttus"; ?></td>
                     <td class="hidden-phone "><span class="label label-warning"><?php echo "$create_at"; ?></span></td>
@@ -73,7 +73,7 @@ include ("_menu.php");
                           <i class="icon-zoom-in bigger-130"></i>
                         </a>
 
-                        <a class="green" href="dokter_update.php">
+                        <a class="green" href="dokter_update.php?dokter_id=<?php echo "$iddokter"; ?>">
                           <i class="icon-pencil bigger-130"></i>
                         </a>
 
@@ -129,7 +129,18 @@ include ("_menu.php");
 
 
 
+<script type="text/javascript">
+function update_dokter(){
+  var dokter_id
 
+  dokter_id = document.getElementById('dokter_id').value;
+
+
+      window.location.href='dokter_update.php?dokter_id=' + dokter_id;
+
+}
+
+</script>
 
 
 
