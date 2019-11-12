@@ -19,8 +19,43 @@ include ("_menu.php");
 <div class="page-content">
   <div class="row-fluid">
     <div class="span12">
+
       <!--PAGE CONTENT BEGINS-->
       <div class="row-fluid">
+        <?php
+  	if(isset($_GET['pesan'])){
+  		$pesan = $_GET['pesan'];
+  		if($pesan == "input"){
+
+  			// echo "Data berhasil di input.";
+        echo "<div class='alert alert-block alert-success'>
+  						  <button type='button' class='close' data-dismiss='alert'>
+  							    <i class='icon-remove'></i>
+  							</button>
+  								<i class='icon-ok green'></i>
+  								Data berhasil di input .
+  							</div>";
+  		}else if($pesan == "update"){
+  			// echo "Data berhasil di update.";
+        echo "<div class='alert alert-block alert-success'>
+  						  <button type='button' class='close' data-dismiss='alert'>
+  							    <i class='icon-remove'></i>
+  							</button>
+  								<i class='icon-ok green'></i>
+  								Data berhasil di update .
+  							</div>";
+  		}else if($pesan == "hapus"){
+  			// echo "Data berhasil di hapus.";
+        echo "<div class='alert alert-block alert-danger'>
+  						  <button type='button' class='close' data-dismiss='alert'>
+  							    <i class='icon-remove'></i>
+  							</button>
+
+  								Data berhasil di hapus .
+  							</div>";
+  		}
+  	}
+  	?>
               <!-- <h3 class="header smaller lighter blue">Data Dokter</h3> -->
               <div class="table-header">
                   Data Dokter
@@ -69,7 +104,7 @@ include ("_menu.php");
 
                     <td class="td-actions ">
                       <div class="hidden-phone visible-desktop action-buttons">
-                        <a class="blue" href="dokter_show.php">
+                         <a class="blue" href="dokter.php"><!-- dokter_show.php -->
                           <i class="icon-zoom-in bigger-130"></i>
                         </a>
 
@@ -77,7 +112,7 @@ include ("_menu.php");
                           <i class="icon-pencil bigger-130"></i>
                         </a>
 
-                        <a class="red" href="dokter_delete.php">
+                        <a class="red" href="dokter_delete.php?dokter_id=<?php echo "$iddokter"; ?>">
                           <i class="icon-trash bigger-130"></i>
                         </a>
                       </div>

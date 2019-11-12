@@ -51,7 +51,7 @@ include ("_menu.php");
         <div class="control-group">
           <label class="control-label" for="statusdokter">Status</label>
           <div class="controls">
-            <input type="text" name="statusdokter" id="statusdokter" value="<?php echo $data['Status'] ?>">
+            <input type="text" name="statusdokter" maxlength="1" id="statusdokter" value="<?php echo $data['Status'] ?>">
           </div>
         </div>
 

@@ -29,7 +29,7 @@ date_default_timezone_set("Asia/Bangkok");
            		"
             		<script>
             		alert('Data Dengan ID : ".$id_dokter."  Berhasil Ditambah');
-            		window.location.href='dokter_create.php';
+            		window.location.href='dokter.php?pesan=input';
             		</script>";
            }
            else
@@ -42,13 +42,14 @@ date_default_timezone_set("Asia/Bangkok");
            sqlsrv_free_stmt( $result);
            sqlsrv_close( $conn);
      }elseif ($submit == "update") {
-       $tsql = "update QP7DOCTOR set  Name = '".$nama_dokter."',
+       $tsql1 = "update QP7DOCTOR set
+                                      Name = '".$nama_dokter."',
                                       Status = '".$status_dokter."',
-                                      Create_By = '".$create_a."',
+                                      Create_By = '".$create_at."',
                                       Create_Time = '".$create_time."'
                                       where Doctor_Id = '".$id_dokter."'";
 
-           $result = sqlsrv_query( $conn, $tsql);
+           $result = sqlsrv_query( $conn, $tsql1);
 
            if ( $result )
            {
@@ -57,7 +58,7 @@ date_default_timezone_set("Asia/Bangkok");
            		"
             		<script>
                 alert('Data Dengan ID : ".$id_dokter."  Berhasil Di Update');
-                window.location.href='dokter_update.php';
+                window.location.href='dokter.php?pesan=update';
                 </script>";
            }
            else

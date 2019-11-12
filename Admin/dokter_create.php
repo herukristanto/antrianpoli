@@ -42,7 +42,7 @@ include ("_menu.php");
         <div class="control-group">
           <label class="control-label" for="statusdokter">Status</label>
           <div class="controls">
-            <input type="text" name="statusdokter" id="statusdokter">
+            <input type="text" maxlength="1" name="statusdokter" id="statusdokter">
           </div>
         </div>
 
